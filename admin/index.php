@@ -1,6 +1,9 @@
 <?php
 if(!isset($_SESSION)) session_start();
-
+if(!isset($_SESSION['quantri']))
+{
+	header('location:login.php');
+}
 include_once 'db_connect/config.php';
 include 'db_connect/pdo.php';
 $sql='select * from SANPHAM';

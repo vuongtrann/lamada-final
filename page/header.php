@@ -92,9 +92,9 @@ if (!isset($_SESSION)) session_start();
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục sản phẩm
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="LTGM.php">Laptop Gaming</a>
+                        <a class="dropdown-item" href="LTVP.php">Laptop Văn Phòng</a>
+                        <a class="dropdown-item" href="PKien.php">Phụ Kiện</a>
                     </div>
                 </div>
                 <div class="main">

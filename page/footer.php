@@ -3,7 +3,7 @@
         <div class="footer_logo"><a href="index.php"><img src="images/logo1.png" height="150px" width="250px"></a></div>
         <div class="input_bt">
             <input type="text" class="mail_bt" placeholder="Địa chỉ email" name="Your Email">
-            <span class="subscribe_bt" id="basic-addon2"><a href="#">Đăng ký</a></span>
+            <span class="subscribe_bt" id="basic-addon2"><a href="register.php">Đăng ký</a></span>
         </div>
         <!-- <div class="footer_menu">
                <ul>
