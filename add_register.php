@@ -21,11 +21,15 @@ if($m!=''){
         $a =[ $m, $t, $mk];
         $tam = $objPDO->prepare($sql);
         $tam->execute($a);
-        header('location:login.php'); 
+        //header('location:login.php');
+        echo '<script language="javascript">';
+        echo 'alert("Đăng kí tài khoản thành công !")';
+        echo '</script>';
+        header("refresh:0.05;url=login.php"); 
     }else{
         echo '<script language="javascript">';
         echo 'alert("Mã khách hàng đã tồn tại")';
         echo '</script>';
-        header("refresh:0.5;url=register.php.php");
+        header("refresh:0.5;url=register.php");
     }
 }

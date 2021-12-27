@@ -41,7 +41,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Mừng trở lại!</h1>
                                     </div>
-                                    <form class="user" action="confirm_login.php">
+                                    <form class="user" action="confirm_login.php" method="post">
                                         <div class="form-group">
                                             <input name="MSKH" type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -58,9 +58,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.php" class="btn btn-primary btn-user btn-block">
-                                            Đăng nhập
-                                        </a>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng nhập">
+                                           
+                                        </input>
                                         <!-- <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google

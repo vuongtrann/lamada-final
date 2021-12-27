@@ -12,12 +12,13 @@ foreach($data as $v){
     if($u==$v->MSKH && $p==$v->MKhau){
         $_SESSION['user']=$u;
         header('location:index.php');
+        // print_r($p);
         exit;
     }
+    
 }
 echo '<script language="javascript">'; 
 echo 'alert("Khách hàng không tồn tại !")';
            
-echo '</script>';
-header( "refresh:0.5;url=login.php" );
- ?>
+    echo '</script>';
+    header( "refresh:0.5;url=login.php" );

@@ -15,23 +15,39 @@ if (!isset($_SESSION)) session_start();
                         <ul>
                             <div class="login_menu">
                                 <ul>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                    ?>
+                                        
+                                        <li><a href="logout.php">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span class="padding_10">Đăng xuất</span></a>
+                                        </li>
+                                        <li>
+                                        <i class="fa " aria-hidden="true"></i>
+                                        <span class="padding_10">Xin chào : </span></span>
+                                    </li>
+                                        
+                                    <?php
 
-                                    <li><a href="login.php">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                            <span class="padding_10">Đăng nhập</span></a>
-                                    </li>
-                                    <li><a href="login.php">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                            <span class="padding_10">Đăng xuất</span></a>
-                                    </li>
-                                    <li><br></li>
-                                    <li><br></li>
-                                    <li><br></li>
-                                    <li><br></li>
-                                    <li>
-                                            <i class="fa " aria-hidden="true"></i>
-                                            <span class="padding_10">Xin chào : </span></span>
-                                    </li>
+
+                                    }else {
+                                        ?>
+                                        <li><a href="login.php">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span class="padding_10">Đăng nhập</span></a>
+                                        </li>
+                                        <li><a href="register.php">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span class="padding_10">Đăng Ký</span></a>
+                                        </li>
+                                        
+                                        <?php
+
+                                    }
+                                    ?>
+
+                                   
                                     <li>
                                         <?php
                                         if (isset($_SESSION['user'])) {
@@ -40,10 +56,10 @@ if (!isset($_SESSION)) session_start();
                                             $tam = $objPDO->prepare($sql);
                                             $tam->execute($a);
                                             $data = $tam->fetch(PDO::FETCH_OBJ);
-                                            // echo $data->TenKH;
-                                            print_r($a);
+                                            echo $data->TenKH;
+                                            // print_r($a);
                                         }
-                                       
+
                                         ?>
                                     </li>
                                 </ul>
