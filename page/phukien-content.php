@@ -1,5 +1,5 @@
 <?php
-$sql = 'select * from SANPHAM join LOAISANPHAM on LOAISANPHAM.MSLSP=SANPHAM.MSLSP where SANPHAM.MSLSP like "PKGM"';
+$sql = 'select * from SANPHAM join LOAISANPHAM on LOAISANPHAM.MSLSP=SANPHAM.MSLSP where SANPHAM.MSLSP like "PKGM" && SANPHAM.MSTTSP like "1"';
 $a = ["%$kw%"];
 $objStatament = $objPDO->prepare($sql);
 $objStatament->execute($a);
@@ -25,7 +25,7 @@ $dataPK = $objStatament->fetchALL(PDO::FETCH_OBJ);
                                     <div class="col-lg-4 col-sm-4">
                                         <div class="box_main">
                                             <h4 class="shirt_text"><?php echo $v->TenSP?></h4>
-                                            <p class="price_text"><?php echo $v->Gia?></span></p>
+                                            <p class="price_text"><?php echo $v->Gia?> đ </span></p>
                                             <div class="jewellery_img"><a href="single.php?MSSP=<?php echo $v->MSSP?>"><img src="admin/img/product/<?php echo $v->IMG?>"></a></div>
                                             <div class="btn_main">
                                                 <div class="buy_bt"><a href="#">Mua ngay</a></div>
