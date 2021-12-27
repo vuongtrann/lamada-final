@@ -99,14 +99,15 @@ if (!isset($_SESSION)) session_start();
                 </div>
                 <div class="main">
                     <!-- Another variation with a button -->
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm">
+                    <form class="input-group" action="search.php" method="get">
+                        
+                        <input name="kw" type="text" class="form-control" placeholder="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
                         <div class="input-group-append">
                             <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="header_box">
                     <div class="lang_box ">
