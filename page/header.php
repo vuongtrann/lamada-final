@@ -1,30 +1,66 @@
+<?php
+if (!isset($_SESSION)) session_start();
+
+
+?>
+
 <!-- banner bg main start -->
 <div class="banner_bg_main">
     <!-- header top section start -->
-    <!-- <div class="container">
-            <div class="header_section_top">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="custom_menu">
+    <div class="container">
+        <div class="header_section_top">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="custom_menu">
                         <ul>
-                           <li><a href="#">Best Sellers</a></li>
-                           <li><a href="#">Gift Ideas</a></li>
-                           <li><a href="#">New Releases</a></li>
-                           <li><a href="#">Today's Deals</a></li>
-                           <li><a href="#">Customer Service</a></li>
+                            <div class="login_menu">
+                                <ul>
+
+                                    <li><a href="login.php">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span class="padding_10">Đăng nhập</span></a>
+                                    </li>
+                                    <li><a href="login.php">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span class="padding_10">Đăng xuất</span></a>
+                                    </li>
+                                    <li><br></li>
+                                    <li><br></li>
+                                    <li><br></li>
+                                    <li><br></li>
+                                    <li>
+                                            <i class="fa " aria-hidden="true"></i>
+                                            <span class="padding_10">Xin chào : </span></span>
+                                    </li>
+                                    <li>
+                                        <?php
+                                        if (isset($_SESSION['user'])) {
+                                            $sql = 'select * from KHACHHANG where MSKH =?';
+                                            $a = [$_SESSION['user']];
+                                            $tam = $objPDO->prepare($sql);
+                                            $tam->execute($a);
+                                            $data = $tam->fetch(PDO::FETCH_OBJ);
+                                            // echo $data->TenKH;
+                                            print_r($a);
+                                        }
+                                       
+                                        ?>
+                                    </li>
+                                </ul>
+                            </div>
                         </ul>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div> -->
+        </div>
+    </div>
     <!-- header top section start -->
     <!-- logo section start -->
     <div class="logo_section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="logo"><a href="index.html"><img src="images/logo1.png" height="180px" width="200px"></a></div>
+                    <div class="logo"><a href="index.php"><img src="images/logo1.png" height="180px" width="200px"></a></div>
                 </div>
             </div>
         </div>
@@ -74,10 +110,7 @@
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span class="padding_10">Giỏ hàng</span></a>
                             </li>
-                            <li><a href="#">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span class="padding_10">Tài khoản</span></a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -94,21 +127,21 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <h1 class="banner_taital">Lamada <br>Thế giới công nghệ</h1>
-                             </div>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="row">
-                        <div class="col-sm-12">
+                            <div class="col-sm-12">
                                 <h1 class="banner_taital">Lamada <br>Thế giới công nghệ</h1>
-                             </div>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="row">
-                        <div class="col-sm-12">
+                            <div class="col-sm-12">
                                 <h1 class="banner_taital">Lamada <br>Thế giới công nghệ</h1>
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
