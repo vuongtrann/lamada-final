@@ -29,7 +29,7 @@ $dataPK = $objStatament->fetchALL(PDO::FETCH_OBJ);
                                             <div class="jewellery_img"><a href="single.php?MSSP=<?php echo $v->MSSP?>"><img src="admin/img/product/<?php echo $v->IMG?>"></a></div>
                                             <div class="btn_main">
                                                 <div class="buy_bt"><a href="#">Mua ngay</a></div>
-                                                <div class="seemore_bt"><a href="#">Xem thêm</a></div>
+                                                <div class="seemore_bt"><a href="single.php?MSSP=<?php echo $v->MSSP ?>">Xem thêm</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@ $dataPK = $objStatament->fetchALL(PDO::FETCH_OBJ);
                                             <div class="jewellery_img"><a href="single.php?MSSP=<?php echo $v->MSSP?>"><img src="admin/img/product/<?php echo $v->IMG?>"></a></div>
                                             <div class="btn_main">
                                                 <div class="buy_bt"><a href="#">Mua ngay</a></div>
-                                                <div class="seemore_bt"><a href="#">Xem thêm</a></div>
+                                                <div class="seemore_bt"><a href="">Xem thêm</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@ $dataPK = $objStatament->fetchALL(PDO::FETCH_OBJ);
                                             <div class="jewellery_img"><a href="single.php?MSSP=<?php echo $v->MSSP?>"><img src="admin/img/product/<?php echo $v->IMG?>"></a></div>
                                             <div class="btn_main">
                                                 <div class="buy_bt"><a href="#">Mua ngay</a></div>
-                                                <div class="seemore_bt"><a href="#">Xem thêm</a></div>
+                                                <div class="seemore_bt"><a href="single.php?MSSP=<?php echo $v->MSSP ?>">Xem thêm</a></div>
                                             </div>
                                         </div>
                                     </div>
