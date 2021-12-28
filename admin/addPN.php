@@ -1,9 +1,11 @@
 <?php
 include './db_connect/pdo.php';
-$sql = "select * from NHASANXUAT  ";
+$sql = "select * from PHIEUNHAP ";
 $objStatement = $objPDO->prepare($sql);
 $objStatement->execute();
 $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,31 +52,46 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
                 <!-- Begin Page Content -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Thêm nhà sản xuất</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Thêm phiếu nhập</h6>
                     </div>
                     <div class="card-body">
-                        <form action="saveNSX.php" method="post" enctype="multipart/form-data">
+                        <form action="savePN.php" method="post" enctype="multipart/form-data">
                             <table class="table">
 
                                 <tbody>
                                     <tr>
-                                        <td scope="row"> Mã số nhà sản xuất :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="MSNSX" ></td>
+                                        <td scope="row"> Mã số phiếu nhập :</td>
+                                        <td><input type="text" style="min-width: 800px;" name="MSPN" ></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row">Tên nhà sản xuất :</td>
-                                        <td><input type="text" name="TenNSX" style="min-width: 800px;" ></td>
+                                        <td scope="row">Mã số sản phẩm :</td>
+                                        <td><input type="text" name="MSSP" style="min-width: 800px;" ></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row"> Xuất sứ :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="XuatSu" ></td>
+                                        <td scope="row">Mã số nhân viên :</td>
+                                        <td><input type="text" name="MSNV" style="min-width: 800px;" ></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row">Số điện thoại :</td>
-                                        <td><input type="text" name="SDT" style="min-width: 800px;" ></td>
+                                        <td scope="row">Giá:</td>
+                                        <td><input type="text" name="Gia" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Tổng tiền:</td>
+                                        <td><input type="text" name="TongTien" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Số lượng:</td>
+                                        <td><input type="text" name="SoLuong" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Ngày nhập:</td>
+                                        <td><input type="date" name="NgayNhap" style="min-width: 800px;" ></td>
 
                                     </tr>
                                 </tbody>
@@ -84,7 +101,7 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
 
 
 
-                            <input type="submit" style="min-width: 100px; " value="Thêm nhà sản xuất mới">
+                            <input type="submit" style="min-width: 100px; " value="Thêm phiếu nhập">
 
                         </form>
                     </div>

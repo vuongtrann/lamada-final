@@ -59,7 +59,7 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
                 <!-- Begin Page Content -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Cập nhật thông tin nhà sản xuất</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Cập nhật thông tin khách hàng</h6>
                     </div>
                     <div class="card-body">
                         <form action="updateKH.php" method="post" enctype="multipart/form-data">

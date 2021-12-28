@@ -1,6 +1,6 @@
 <?php
 include './db_connect/pdo.php';
-$sql = "select * from NHASANXUAT  ";
+$sql = "select * from NHANVIEN  ";
 $objStatement = $objPDO->prepare($sql);
 $objStatement->execute();
 $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
@@ -50,31 +50,51 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
                 <!-- Begin Page Content -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Thêm nhà sản xuất</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Thêm nhân viên</h6>
                     </div>
                     <div class="card-body">
-                        <form action="saveNSX.php" method="post" enctype="multipart/form-data">
+                        <form action="saveNV.php" method="post" enctype="multipart/form-data">
                             <table class="table">
 
                                 <tbody>
                                     <tr>
-                                        <td scope="row"> Mã số nhà sản xuất :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="MSNSX" ></td>
+                                        <td scope="row"> Mã số nhân viên :</td>
+                                        <td><input type="text" style="min-width: 800px;" name="MSNV" ></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row">Tên nhà sản xuất :</td>
-                                        <td><input type="text" name="TenNSX" style="min-width: 800px;" ></td>
+                                        <td scope="row">Tên nhân viên :</td>
+                                        <td><input type="text" name="TenNV" style="min-width: 800px;" ></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row"> Xuất sứ :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="XuatSu" ></td>
+                                        <td scope="row"> Mật khẩu :</td>
+                                        <td><input type="text" style="min-width: 800px;" name="MKhau" ></td>
 
                                     </tr>
                                     <tr>
                                         <td scope="row">Số điện thoại :</td>
                                         <td><input type="text" name="SDT" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Mã số quyền hạn :</td>
+                                        <td><input type="text" name="MSQH" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Ngày sinh :</td>
+                                        <td><input type="date" name="NgaySinh" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Giới tính :</td>
+                                        <td><input type="text" name="GioiTinh" style="min-width: 800px;" ></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Địa chỉ :</td>
+                                        <td><input type="text" name="DiaChi" style="min-width: 800px;" ></td>
 
                                     </tr>
                                 </tbody>
@@ -84,7 +104,7 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
 
 
 
-                            <input type="submit" style="min-width: 100px; " value="Thêm nhà sản xuất mới">
+                            <input type="submit" style="min-width: 100px; " value="Thêm nhân viên mới">
 
                         </form>
                     </div>

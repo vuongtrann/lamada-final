@@ -70,7 +70,7 @@
                 <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Danh sách các đơn hàng</a>                    </div>
+                        <a class="collapse-item" href="donhang.php">Danh sách các đơn hàng</a>                    </div>
                 </div>
             </li>
 
@@ -83,10 +83,10 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Danh sách các phiếu nhập</a>   
-                        <a class="collapse-item" href="utilities-color.html">Danh sách các phiếu xuất</a> 
-                        <a class="collapse-item" href="utilities-color.html">Thêm phiếu nhập</a> 
-                        <a class="collapse-item" href="utilities-color.html">Thêm phiếu xuất</a>                  </div>
+                        <a class="collapse-item" href="phieunhap.php">Danh sách các phiếu nhập</a>   
+                        <a class="collapse-item" href="phieuxuat.php">Danh sách các phiếu xuất</a> 
+                        <a class="collapse-item" href="addPN.php">Thêm phiếu nhập</a> 
+                        <a class="collapse-item" href="addPX.php">Thêm phiếu xuất</a>                  </div>
                 </div>
             </li>
 
@@ -100,8 +100,8 @@
                 <div id="collapseUtilities4" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Danh sách các nhân viên</a>   
-                        <a class="collapse-item" href="utilities-color.html">Thêm nhân viên mới</a> 
+                        <a class="collapse-item" href="nhanvien.php">Danh sách các nhân viên</a>   
+                        <a class="collapse-item" href="addNV.php">Thêm nhân viên mới</a> 
                 </div>
                 </div>
             </li>

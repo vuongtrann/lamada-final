@@ -1,8 +1,17 @@
 <?php
 include './db_connect/pdo.php';
-$sql = "select * from NHASANXUAT  ";
+
+
+$m = isset($_GET['MSDH']) ? $_GET['MSDH'] : '';
+if ($m == '') {
+    header('location:donhang.php');
+    exit;
+}
+
+$sql = "select * from DONHANG where MSDH= ? ";
+$a = [$m];
 $objStatement = $objPDO->prepare($sql);
-$objStatement->execute();
+$objStatement->execute($a);
 $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
@@ -50,31 +59,46 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
                 <!-- Begin Page Content -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Thêm nhà sản xuất</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Cập nhật thông tin đơn hàng</h6>
                     </div>
                     <div class="card-body">
-                        <form action="saveNSX.php" method="post" enctype="multipart/form-data">
+                        <form action="updateDH.php" method="post" enctype="multipart/form-data">
                             <table class="table">
 
                                 <tbody>
                                     <tr>
-                                        <td scope="row"> Mã số nhà sản xuất :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="MSNSX" ></td>
+                                        <td scope="row"> Mã số đơn hàng :</td>
+                                        <td><input type="text" style="min-width: 800px;" name="MSDH" value='<?php echo $data1->MSDH ?>'></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row">Tên nhà sản xuất :</td>
-                                        <td><input type="text" name="TenNSX" style="min-width: 800px;" ></td>
+                                        <td scope="row">Mã số nhân viên :</td>
+                                        <td><input type="text" name="MSNV" style="min-width: 800px;" value='<?php echo $data1->MSNV ?>'></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row"> Xuất sứ :</td>
-                                        <td><input type="text" style="min-width: 800px;" name="XuatSu" ></td>
+                                        <td scope="row"> Mã số khách hàng :</td>
+                                        <td><input type="text" style="min-width: 800px;" name="MSKH" value='<?php echo $data1->MSKH ?>'></td>
 
                                     </tr>
                                     <tr>
-                                        <td scope="row">Số điện thoại :</td>
-                                        <td><input type="text" name="SDT" style="min-width: 800px;" ></td>
+                                        <td scope="row">Ngày Đặt :</td>
+                                        <td><input type="text" name="NgayDat" style="min-width: 800px;" value='<?php echo $data1->NgayDat ?>'></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Mã số trạng thái :</td>
+                                        <td><input type="text" name="MSTT" style="min-width: 800px;" value='<?php echo $data1->MSTT ?>'></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Ngày Giao :</td>
+                                        <td><input type="text" name="NgayGiao" style="min-width: 800px;" value='<?php echo $data1->NgayGiao ?>'></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Tổng tiền :</td>
+                                        <td><input type="text" name="TongTien" style="min-width: 800px;" value='<?php echo $data1->TongTien ?>'></td>
 
                                     </tr>
                                 </tbody>
@@ -84,7 +108,7 @@ $data1 = $objStatement->fetch(PDO::FETCH_OBJ);
 
 
 
-                            <input type="submit" style="min-width: 100px; " value="Thêm nhà sản xuất mới">
+                            <input type="submit" style="min-width: 100px; " value="Cập nhật">
 
                         </form>
                     </div>
