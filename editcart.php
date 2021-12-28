@@ -4,25 +4,38 @@ include './db_connect/pdo.php';
 
 
 $m = isset($_GET['MSSP']) ? $_GET['MSSP'] : '';
-$t = isset($_GET['TenSP']) ? $_GET['TenSP'] : '';
-$sql = 'select * from SANPHAM where MSSP=? ';
+
+$sql = 'select * from SANPHAM join NHASANXUAT on NHASANXUAT.MSNSX=SANPHAM.MSNSX where SANPHAM.MSSP = ?';
 $a = [$m];
 $stm = $objPDO->prepare($sql);
 $stm->execute($a);
-$dataS = $stm->fetchALL(PDO::FETCH_OBJ);
+$dataS = $stm->fetch(PDO::FETCH_OBJ);
 
 
-$sql = 'select * from LOAISANPHAM';
-$objStatament = $objPDO->prepare($sql);
-$objStatament->execute();
-$dataVP1 = $objStatament->fetchALL(PDO::FETCH_OBJ);
+// $sql = 'select * from LOAISANPHAM';
+// $objStatament = $objPDO->prepare($sql);
+// $objStatament->execute();
+// $dataVP1 = $objStatament->fetchALL(PDO::FETCH_OBJ);
 
-$a = isset($_GET['MSSP']) ? $_GET['MSSP'] : '';
-$sql = 'select * from NHASANXUAT join SANPHAM on SANPHAM.MSNSX=NHASANXUAT.MSNSX where SANPHAM.MSSP= ?';
-$b = [$a];
-$objStatament = $objPDO->prepare($sql);
-$objStatament->execute($b);
-$dataSX = $objStatament->fetchALL(PDO::FETCH_OBJ);
+// $a = isset($_GET['MSSP']) ? $_GET['MSSP'] : '';
+// $sql = 'select * from NHASANXUAT join SANPHAM on SANPHAM.MSNSX=NHASANXUAT.MSNSX where SANPHAM.MSSP= ?';
+// $b = [$a];
+// $objStatament = $objPDO->prepare($sql);
+// $objStatament->execute($b);
+// $dataSX = $objStatament->fetchALL(PDO::FETCH_OBJ);
+
+$email = 'a';
+if (!isset($_SESSION)) session_start();
+if (isset($_SESSION['user'])) {
+    $email = $_SESSION['user'];
+}
+$m = isset($_GET['MSSP']) ? $_GET['MSSP'] : '';
+
+$sql = "select * from giohang where MSSP= ? and Email=?";
+$a = [$m, $email];
+$tam = $objPDO->prepare($sql);
+$tam->execute($a);
+$dataGH = $tam->fetch(PDO::FETCH_OBJ);
 ?>
 
 
@@ -82,77 +95,64 @@ $dataSX = $objStatament->fetchALL(PDO::FETCH_OBJ);
     </header> -->
     <!-- Section-->
     <div class="fashion_section">
-        <form action="add_item.php" method="get" class="container px-4 px-lg-5 mt-5">
+        <form action="updateGH.php" method="get" class="container px-4 px-lg-5 mt-5">
             <div class="arousel-inner ">
                 <div class="container">
                     <h1 class="fashion_taital">Thông tin sản phẩm</h1><br><br>
                 </div>
             </div>
             <div class="row gx-2 row-cols-2  row-cols-xl-2 justify-content-center">
-                <?php
-                $flag = 0;
-                foreach ($dataS as $v) {
 
+                <div class="">
 
-                ?>
-                    <div class="">
+                    <!-- Product image-->
 
-                        <!-- Product image-->
+                    <input type="hidden" name="IMG" class="" href="single.php?MSSP=<?php echo $dataS->MSSP ?>"><img src="admin/img/product/<?php echo $dataS->IMG ?>" alt="" width="300px" height="300px" style="margin-left: 130px;"></input>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <a href="single.php?MSSP=<?php echo $v->MSSP ?>">
+                                <input type="hidden" name="TenSP" class="tshirt_text"><?php echo $dataS->TenSP ?></input>
+                            </a>
+                            <!-- Product price-->
 
-                        <input type="hidden" name="IMG" class="" href="single.php?MSSP=<?php echo $v->MSSP ?>"><img src="admin/img/product/<?php echo $v->IMG ?>" alt="" width="300px" height="300px" style="margin-left: 130px;"></input>
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <a href="single.php?MSSP=<?php echo $v->MSSP ?>">
-                                    <input type="hidden" name="TenSP" class="tshirt_text"><?php echo $v->TenSP ?></input>
-                                </a>
-                                <!-- Product price-->
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col md-5">
-                        <div class="tshirt_text">
-                            <h6><strong>Mã sản phẩm : </strong></h6>
-                            <input type="text" name="MSSP" value="<?php echo $v->MSSP ?>"></input>
-                        </div>
-                        <br>
-                        <div class="tshirt_text">
-                            <?php
-                            foreach ($dataSX as $n) {
-                            ?>
-                                <h6><strong>Nhà sản xuất : </strong><?php echo $n->TenNSX ?></h6>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                        <br>
-                        <div class="tshirt_text">
-                            <h6><strong>Thông số sản phẩm : </strong></h6>
-                            <input type="hidden" name="TSSP"><?php echo $v->TSSP ?></input>
-                        </div>
-                        <br>
-                        <div class="tshirt_text">
-                            <h6><strong>Số Lượng : </strong></h6>
-                            <input type="number" name="SoLuong" value="1"></input>
                         </div>
 
                     </div>
+                </div>
+                <div class="col md-5">
+                    <div class="tshirt_text">
+                        <h6><strong>Mã sản phẩm : </strong></h6>
+                        <input type="text" name="MSSP" value="<?php echo $dataS->MSSP ?>" readonly></input>
+                    </div>
+                    <br>
+                    <div class="tshirt_text">
 
-                <?php
-                    $flag++;
-                }
+                        <h6><strong>Nhà sản xuất : </strong><?php echo $dataS->TenNSX ?></h6>
 
-                ?>
+
+                    </div>
+                    <br>
+                    <div class="tshirt_text">
+                        <h6><strong>Thông số sản phẩm : </strong></h6>
+                        <input type="hidden" name="TSSP"><?php echo $dataS->TSSP ?></input>
+                    </div>
+                    <br>
+                    <div class="tshirt_text">
+                        <h6><strong>Số Lượng : </strong></h6>
+                        <input type="number" name="SoLuong" value="<?php echo $dataGH->SoLuong ?>"></input>
+                    </div>
+
+                </div>
+                <div class="text-center" style="color: red;">
+                    <input type="hidden" name="Gia"><strong> Giá : <?php echo $dataS->Gia ?> VND</strong></input>
+                </div>
 
             </div>
-            <div class="text-center" style="color: red;">
-                <input type="hidden" name="Gia"><strong> Giá : <?php echo $v->Gia ?> VND</strong></input>
-            </div>
+
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><input class="btn btn-outline-dark mt-auto" type="submit" value="Thêm vào giỏ hàng"></div>
+                <div class="text-center"><input class="btn btn-outline-dark mt-auto" type="submit" value="Cập nhật"></div>
             </div>
 
         </form>

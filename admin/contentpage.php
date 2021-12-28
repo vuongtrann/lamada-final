@@ -173,7 +173,7 @@ if ($n == 1) {
                         <tr>
                             <th>Mã số khách hàng</th>
                             <th>Tên khách hàng</th>
-                            <th>Địa chỉ</th>
+                            <!-- <th>Địa chỉ</th> -->
                             <th>Số điện thoại</th>
                             <th>Thao tác</th>
                         </tr>
@@ -182,7 +182,7 @@ if ($n == 1) {
                         <tr>
                             <th>Mã số khách hàng</th>
                             <th>Tên khách hàng</th>
-                            <th>Địa chỉ</th>
+                            <!-- <th>Địa chỉ</th> -->
                             <th>Số điện thoại</th>
                             <th>Thao tác</th>
                         </tr>
@@ -194,7 +194,7 @@ if ($n == 1) {
                             <tr>
                                 <td><?php echo $s->MSKH ?></td>
                                 <td><?php echo $s->TenKH ?></td>
-                                <td><?php echo $s->DiaChi ?></td>
+                                <!-- <td><?php echo $s->DiaChi ?></td> -->
                                 <td><?php echo $s->SDT ?></td>
                                 <td>
                                     <a href="editKH.php?MSKH=<?php echo $s->MSKH ?>"><img src="img/icon-admin-content/edit.png" alt="Edit" width="25px" height="25px"></a> <br> <br>

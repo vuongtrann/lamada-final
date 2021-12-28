@@ -1,5 +1,5 @@
 <?php
-define('HOST', 'localhost:3307');
+define('HOST', 'localhost');
 define('DB', 'dacndb');
 define('USER', 'root');
-define('PW', '');
+define('PW', 'Quocvuong2712');

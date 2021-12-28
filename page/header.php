@@ -123,7 +123,7 @@ if (!isset($_SESSION)) session_start();
                     </div>
                     <div class="login_menu">
                         <ul>
-                            <li><a href="#">
+                            <li><a href="check_out.php  ">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span class="padding_10">Giỏ hàng</span></a>
                             </li>

@@ -1,5 +1,5 @@
 <?php
-$sql = 'select * from SANPHAM join LOAISANPHAM on LOAISANPHAM.MSLSP=SANPHAM.MSLSP where SANPHAM.MSLSP like "LVP" && SANPHAM.MSTTSP like "0"';
+$sql = 'select * from SANPHAM join LOAISANPHAM on LOAISANPHAM.MSLSP=SANPHAM.MSLSP where SANPHAM.MSLSP like "LVP" ';
 $a = ["%$kw%"];
 $objStatament = $objPDO->prepare($sql);
 $objStatament->execute($a);
