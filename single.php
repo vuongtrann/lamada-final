@@ -82,7 +82,7 @@ $dataSX = $objStatament->fetchALL(PDO::FETCH_OBJ);
     </header> -->
     <!-- Section-->
     <div class="fashion_section">
-        <form class="container px-4 px-lg-5 mt-5">
+        <form action="add_item.php" method="get" class="container px-4 px-lg-5 mt-5">
             <div class="arousel-inner ">
                 <div class="container">
                     <h1 class="fashion_taital">Thông tin sản phẩm</h1><br><br>
@@ -142,7 +142,7 @@ $dataSX = $objStatament->fetchALL(PDO::FETCH_OBJ);
                 <strong> Giá : <?php echo $v->Gia ?> VND</strong>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Thêm vào giỏ hàng</a></div>
+                <div class="text-center"><input class="btn btn-outline-dark mt-auto" type="submit" value="Thêm vào giỏ hàng"></div>
             </div>
 
         </form>
